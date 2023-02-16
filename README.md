@@ -31,6 +31,8 @@ Finalmente, se agregó una función para cargar los datos desde el archivo JSON 
 
 
 
+
+
 Proyecto realizado por: Franco Leyes
 
 Para CHR - Test Práctico Developer
