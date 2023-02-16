@@ -1,0 +1,76 @@
+{% extends 'core/base.html' %}
+
+{% block title%}
+Proyectos
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <h1 class="text-center mt-3">Proyectos</h1>
+  <div class="alert alert-danger mt-3" role="alert">
+    Estos proyectos estan cargados hasta la página 9 de "https://seia.sea.gob.cl/busqueda/buscarProyectoAction.php". Esto puede ser modificado dentro de core/scraper.py, cambiando el "limite_de_paginas" y ejecutando el script.
+  </div>
+  <div class="mt-2">
+    <ul class="pagination">
+      {% if page_obj.has_previous %}
+        <li class="page-item">
+          <a href="?page={{ page_obj.previous_page_number }}" class="page-link">Anterior</a>
+        </li>
+      {% else %}
+        <li class="page-item disabled">
+          <a href="#" class="page-link">Anterior</a>
+        </li>
+      {% endif %}
+
+      <li class="page-link page-item disabled">
+        Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}
+      </li>
+      {% if page_obj.has_next %}
+        <li class="page-item">
+          <a href="?page={{ page_obj.next_page_number }}" class="page-link">Siguiente</a>
+        </li>
+      {% else %}
+        <li class="page-item disabled">
+          <a href="#" class="page-link">Siguiente</a>
+        </li>
+      {% endif %}
+    </ul>
+
+  </div>
+  
+  <table class="table table-striped mt-4">
+    <thead>
+      <tr>
+        <th>N°</th>
+        <th>Nombre</th>
+        <th>Tipo</th>
+        <th>Región</th>
+        <th>Tipología</th>
+        <th>Titular</th>
+        <th>Inversión(MMU$)</th>
+        <th>Fecha Presentación
+            Fecha de Ingreso(*)</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for project in page_obj %}
+      <tr>
+        <td>{{ project.name }}</td>
+        <td>{{ project.type }}</td>
+        <td>{{ project.region }}</td>
+        <td>{{ project.typology }}</td>
+        <td>{{ project.holder }}</td>
+        <td>{{ project.investment }}</td>
+        <td>{{ project.date_presentation }}</td>
+        <td>{{ project.state }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  
+</div>
+
+{% endblock %}

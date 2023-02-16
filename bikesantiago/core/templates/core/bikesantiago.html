@@ -1,0 +1,65 @@
+{% extends 'core/base.html' %}
+
+{% block title%}
+Bikes Santiago
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <h1 class="text-center mt-3">Estaciones de Bicicletas en Santiago</h1>
+
+  <div class="mt-2">
+    <ul class="pagination">
+      {% if page_obj.has_previous %}
+        <li class="page-item">
+          <a href="?page={{ page_obj.previous_page_number }}" class="page-link">Anterior</a>
+        </li>
+      {% else %}
+        <li class="page-item disabled">
+          <a href="#" class="page-link">Anterior</a>
+        </li>
+      {% endif %}
+
+      <li class="page-link page-item disabled">
+        Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}
+      </li>
+      {% if page_obj.has_next %}
+        <li class="page-item">
+          <a href="?page={{ page_obj.next_page_number }}" class="page-link">Siguiente</a>
+        </li>
+      {% else %}
+        <li class="page-item disabled">
+          <a href="#" class="page-link">Siguiente</a>
+        </li>
+      {% endif %}
+    </ul>
+
+  </div>
+  
+  <table class="table table-striped mt-4">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Latitud</th>
+        <th>Longitud</th>
+        <th>Bicicletas Disponibles</th>
+        <th>Cupos Disponibles</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for bike_santiago in page_obj %}
+      <tr>
+        <td>{{ bike_santiago.name }}</td>
+        <td>{{ bike_santiago.latitude }}</td>
+        <td>{{ bike_santiago.longitude }}</td>
+        <td>{{ bike_santiago.free_bikes }}</td>
+        <td>{{ bike_santiago.empty_slots }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+</div>
+
+{% endblock %}

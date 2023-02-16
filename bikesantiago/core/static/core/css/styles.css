@@ -1,0 +1,24 @@
+.navbar,.footer {
+  background-color: #61B5E8!important;
+}
+
+.navbar-brand {
+  font-size: 2rem;
+}
+
+.navbar-nav .nav-link {
+  font-size: 1.2rem;
+}
+
+.table {
+  font-size: 0.9rem;
+}
+
+.table thead th {
+  background-color: #343a40;
+  color: #fff;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
