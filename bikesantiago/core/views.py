@@ -14,8 +14,7 @@ def bike_santiago_view(request):
     return render(request, 'core/bikesantiago.html', {'bikes_santiago': bikes_santiago, 'page_obj': page_obj})
 
 def projects_view(request):
-    if len(Project.objects.all()) == 0:
-        load_data_from_json()
+    load_data_from_json()
     
     projects = Project.objects.all()
 

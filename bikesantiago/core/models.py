@@ -18,6 +18,7 @@ class Project(models.Model):
         return self.name
 
 def load_data_from_json():
+    Project.objects.all().delete()
     file_path = './proyectos.json'
     with open(file_path, 'r') as f:
         data = json.load(f)
@@ -47,6 +48,7 @@ class BikeSantiago(models.Model):
         return self.name
 
 def get_bike_santiago_data():
+    BikeSantiago.objects.all().delete()
     url = "http://api.citybik.es/v2/networks/bikesantiago"
     response = requests.get(url)
     data = response.json()
