@@ -7,6 +7,7 @@ Test Práctico.
 - Clonar el repositorio: git clone https://github.com/francoleyes/test-developer-django.git
 - Acceder a la carpeta del proyecto: cd bike-santiago
 - Instalar las dependencias: pip install -r requirements.txt
+- Crear base de datos en postgresql y completar nombre, usuario y password en settings.py
 - Realizar las migraciones de la base de datos: python manage.py migrate
 - Ejecutar el servidor: python manage.py runserver
 - Acceder a la dirección http://localhost:8000/
