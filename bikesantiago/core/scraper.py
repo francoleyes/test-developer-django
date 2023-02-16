@@ -29,6 +29,7 @@ while True:
     for row in table.find_all("tr")[1:]:
         data = row.find_all('td')
         if len(data) >= 2:
+            numero = data[0].text.strip()
             nombre = data[1].text.strip()
             tipo = data[2].text.strip()
             region = data[3].text.strip()
@@ -40,6 +41,7 @@ while True:
 
             # Añadimos los datos a la lista
             proyectos.append({
+                "num": numero,
                 "name": nombre,
                 "type": tipo,
                 "region": region,

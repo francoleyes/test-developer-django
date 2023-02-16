@@ -57,6 +57,7 @@ Proyectos
     <tbody>
       {% for project in page_obj %}
       <tr>
+        <td>{{ project.num }}</td>
         <td>{{ project.name }}</td>
         <td>{{ project.type }}</td>
         <td>{{ project.region }}</td>

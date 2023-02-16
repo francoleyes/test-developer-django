@@ -5,6 +5,7 @@ import json
 from django.db import models
 
 class Project(models.Model):
+    num = models.CharField(max_length=10000)
     name = models.CharField(max_length=200)
     type = models.CharField(max_length=200)
     region = models.CharField(max_length=200)
@@ -24,6 +25,7 @@ def load_data_from_json():
         data = json.load(f)
         for item in data:
             project = Project(
+                num=item['num'],
                 name=item['name'],
                 type=item['type'],
                 region=item['region'],
